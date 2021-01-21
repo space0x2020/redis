@@ -1,0 +1,18 @@
+version: '3'
+services:
+  redis:
+    build: redis
+    tty: true
+    container_name: redis
+    networks:
+      - mynetwork01
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: always
+
+networks:
+  mynetwork01:
+    external: true
